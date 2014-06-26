@@ -1,0 +1,19 @@
+﻿<Page x:Class="WpfLlk.StartPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="680" d:DesignWidth="780"
+	Title="StartPage">
+
+    <Grid>
+        <StackPanel Orientation="Vertical" Width="300" VerticalAlignment="Center">
+            <Button Content="普通模式" FontSize="20" Height="40" Margin="0,20" Cursor="Hand" Click="NormalGame"></Button>
+            <Button Content="闯关模式" FontSize="20" Height="40" Margin="0,20" Cursor="Hand" Click="ADGame"></Button>
+            <Button Content="道具模式" FontSize="20" Height="40" Margin="0,20" Cursor="Hand" Click="PropsGame"></Button>
+            <Button Content="说明" FontSize="20" Height="40" Margin="0,20" Cursor="Hand"></Button>
+            <Button Content="退出游戏" FontSize="20" Height="40" Margin="0,20" Cursor="Hand" Click="CloseGame"></Button>
+        </StackPanel>
+    </Grid>
+</Page>

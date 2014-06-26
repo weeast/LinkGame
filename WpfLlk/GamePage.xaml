@@ -1,0 +1,100 @@
+﻿<Page x:Class="WpfLlk.GamePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="680" d:DesignWidth="750"
+	        xmlns:local="clr-namespace:WpfLlk"
+        Title="GamePage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="600"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="550"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="Game_Information" Grid.Column="0" Grid.Row="0" FontFamily="微软雅黑" FontSize="18" VerticalAlignment="Center"></TextBlock>
+        <TextBlock x:Name="Stop_Information" Canvas.ZIndex ="1"  Text="暂停了不能耍赖哦~" Background="White" FontFamily="微软雅黑" FontSize="24" TextAlignment="Center" Padding="0,200" Grid.Column="0" Grid.Row="1" Width="500" Height="600" Visibility="Hidden"></TextBlock>
+        <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Vertical" Margin="0,10,0,0">
+            <Grid x:Name="Pic_ListForm" Width="500" Height="450">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"></RowDefinition>
+                    <RowDefinition Height="10*"></RowDefinition>
+                    <RowDefinition Height="10*"></RowDefinition>
+                    <RowDefinition Height="10*"></RowDefinition>
+                    <RowDefinition Height="10*"></RowDefinition>
+                    <RowDefinition Height="10*"></RowDefinition>
+                    <RowDefinition Height="10*"></RowDefinition>
+                    <RowDefinition Height="10*"></RowDefinition>
+                    <RowDefinition Height="10*"></RowDefinition>
+                    <RowDefinition Height="10*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*"></ColumnDefinition>
+                    <ColumnDefinition Width="10*"></ColumnDefinition>
+                    <ColumnDefinition Width="10*"></ColumnDefinition>
+                    <ColumnDefinition Width="10*"></ColumnDefinition>
+                    <ColumnDefinition Width="10*"></ColumnDefinition>
+                    <ColumnDefinition Width="10*"></ColumnDefinition>
+                    <ColumnDefinition Width="10*"></ColumnDefinition>
+                    <ColumnDefinition Width="10*"></ColumnDefinition>
+                    <ColumnDefinition Width="10*"></ColumnDefinition>
+                    <ColumnDefinition Width="10*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+            </Grid>
+            <StackPanel x:Name="Props_Box" Orientation="Horizontal" Width="500" Margin="0,50,0,0">
+                <Canvas  Width="60" Height="60">
+                    <Button x:Name="Props_ColdButton" Content="冰冻" Width="60" Height="60" Cursor="Hand" IsEnabled="False" Click="Props_ColdClick"></Button>
+                    <TextBlock Canvas.ZIndex ="1" Text="{Binding PropsCold,Mode=OneWay}" Width="10" Height="15" Canvas.Left="3"></TextBlock>
+                </Canvas>
+                <Canvas  Width="60" Height="60">
+                    <Button x:Name="Props_CrazyButton" Content="狂暴" Width="60" Height="60" Cursor="Hand" IsEnabled="False" Click="Props_CrazyClick"></Button>
+                    <TextBlock Canvas.ZIndex ="1" Text="{Binding PropsCrazy,Mode=OneWay}" Width="10" Height="15" Canvas.Left="3"></TextBlock>
+                </Canvas>
+                <Canvas  Width="60" Height="60">
+                    <Button x:Name="Props_DoubleButton" Content="双倍" Width="60" Height="60" Cursor="Hand" IsEnabled="False" Click="Props_DoubleClick"></Button>
+                    <TextBlock Canvas.ZIndex ="1" Text="{Binding PropsDouble,Mode=OneWay}" Width="10" Height="15" Canvas.Left="3"></TextBlock>
+                </Canvas>
+                <Canvas  Width="60" Height="60">
+                    <Button x:Name="Props_BombButton" Content="炸弹" Width="60" Height="60" Cursor="Hand" IsEnabled="False" Click="Props_BombClick" ></Button>
+                    <Button  Canvas.ZIndex ="2" x:Name="Props_BombCancelButton" Content="取消" Width="60" Height="60" Cursor="Hand" Visibility="Hidden" Click="Props_BombCancel" ></Button>
+                    <TextBlock Canvas.ZIndex ="1" Text="{Binding PropsBomb,Mode=OneWay}" Width="10" Height="15" Canvas.Left="3"></TextBlock>
+                </Canvas>
+                <Canvas  Width="60" Height="60">
+                    <Button x:Name="Props_TimeButton" Content="时间" Width="60" Height="60" Cursor="Hand" IsEnabled="False" Click="Props_TimeClick"></Button>
+                    <TextBlock Canvas.ZIndex ="1" Text="{Binding PropsTime,Mode=OneWay}" Width="10" Height="15" Canvas.Left="3"></TextBlock>
+                </Canvas>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Orientation="Vertical" Width="150">
+            <Button x:Name="Start_Button" Content="开始" FontFamily="微软雅黑" FontSize="18" Height="40" Margin="0,10,0,10" Cursor="Hand" Click="StartButton"></Button>
+            <StackPanel Height="40" Margin="0,10,0,10">
+                <Button x:Name="Stop_Button" Content="暂停" FontFamily="微软雅黑" FontSize="18" Height="40"  Cursor="Hand" IsEnabled="False" Click="StopGame"></Button>
+                <Button x:Name="Continue_Button" Content="继续" FontFamily="微软雅黑" FontSize="18" Height="40"  Cursor="Hand" Margin="0,-40,0,0" Visibility="Hidden" Click="ContinueGame"></Button>
+            </StackPanel>
+            <Button x:Name="Rerange_Button" Content="重排" FontFamily="微软雅黑" FontSize="18" Height="40" Margin="0,10,0,10" Cursor="Hand" Click="RerangeGame" IsEnabled="False"></Button>
+            <Button x:Name="Mention_Button" Content="提示" FontFamily="微软雅黑" FontSize="18" Height="40" Margin="0,10,0,10" Cursor="Hand" Click="MentionGame" IsEnabled="False"></Button>
+            <Button Content="结束" FontFamily="微软雅黑" FontSize="18" Height="40" Margin="0,10,0,10" Cursor="Hand" Click="EndGame"></Button>
+            <StackPanel x:Name="reveal_partone" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,40,0,0">
+                <TextBlock Text="时间："  FontFamily="微软雅黑" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
+                <TextBlock x:Name="Game_Time" Text="{Binding gameTime,Mode=OneWay}" FontFamily="微软雅黑" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
+            </StackPanel>
+            <StackPanel x:Name="reveal_parttwo" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,40,0,0">
+                <TextBlock Text="分数加成："  FontFamily="微软雅黑" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
+                <TextBlock Text="{Binding GamePointsInc,Mode=OneWay}" FontFamily="微软雅黑" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
+            </StackPanel>
+            <StackPanel x:Name="reveal_partthree" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,40,0,0">
+                <TextBlock Text="分数："  FontFamily="微软雅黑" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
+                <TextBlock x:Name="Game_Points" Text="{Binding gamePoints,Mode=OneWay}" FontFamily="微软雅黑" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
+            </StackPanel>
+            <StackPanel x:Name="reveal_partfour" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,40,0,0">
+                <TextBlock Text="目标分数："  FontFamily="微软雅黑" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
+                <TextBlock x:Name="Target_Points" Text="{Binding TargetPoints,Mode=OneWay}" FontFamily="微软雅黑" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
